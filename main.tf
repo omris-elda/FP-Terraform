@@ -13,13 +13,13 @@ module "aws_security_group" {
   vpc_id = module.aws_vpc.vpc_id
 }
 
-module "cluster" {
+module "aws_eks_cluster" {
   source                 = "./KubernetesCluster"
   public_subnet_id       = module.aws_vpc.public_subnet_id
   vpc_security_group_ids = module.aws_security_group.SecGrp_ID
 }
 
-module "nodes" {
+module "aws_eks_nodes" {
   source       = "./KubernetesNodes"
   subnet_id    = module.aws_vpc.public_subnet_id
   cluster_name = module.aws_eks_cluster.cluster-name
