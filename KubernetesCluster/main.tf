@@ -37,8 +37,8 @@ resource "aws_eks_cluster" "basic-cluster" {
     }
 
     depends_on = [
-        aws_iam_role_policy_attachment.demo-cluster-AmazonEKSClusterPolicy,
-        aws_iam_role_policy_attachment.demo-cluster-AmazonEKSVPCResourceController,
+        aws_iam_role_policy_attachment.basic-cluster-AmazonEKSClusterPolicy,
+        aws_iam_role_policy_attachment.basic-cluster-AmazonEKSVPCResourceController,
     ]
 }
 
