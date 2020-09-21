@@ -1,7 +1,7 @@
 resource "aws_iam_role" "basic-cluster" {
-    name = "IAM role for Terraform Cluster"
+  name = "IAM role for Terraform Cluster"
 
-    assume_role_policy = <<POLICY
+  assume_role_policy = <<POLICY
     {
     "Version": "2012-10-17",
     "Statement": [
@@ -28,17 +28,17 @@ resource "aws_iam_role_policy_attachment" "basic-cluster-AmazonEKSVPCResourceCon
 }
 
 resource "aws_eks_cluster" "basic-cluster" {
-    name = var.cluster-name
-    role_arn = aws_iam_role.cluster-role.arn
+  name     = var.cluster-name
+  role_arn = aws_iam_role.cluster-role.arn
 
-    vpc_config {
-        subnet_id = var.public_subnet_id
-        vpc_security_group_ids = [var.vpc_security_group_ids]
-    }
+  vpc_config {
+    subnet_id              = var.public_subnet_id
+    vpc_security_group_ids = [var.vpc_security_group_ids]
+  }
 
-    depends_on = [
-        aws_iam_role_policy_attachment.basic-cluster-AmazonEKSClusterPolicy,
-        aws_iam_role_policy_attachment.basic-cluster-AmazonEKSVPCResourceController,
-    ]
+  depends_on = [
+    aws_iam_role_policy_attachment.basic-cluster-AmazonEKSClusterPolicy,
+    aws_iam_role_policy_attachment.basic-cluster-AmazonEKSVPCResourceController,
+  ]
 }
 

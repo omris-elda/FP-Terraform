@@ -1,15 +1,15 @@
 resource "aws_vpc" "FP_VPC" {
-    cidr_block = var.vpc-cidr-block
+  cidr_block = var.vpc-cidr-block
 }
 
 data "aws_availability_zones" "available" {
-    state = "available"
+  state = "available"
 }
 
 resource "aws_subnet" "public_subnet" {
-    cidr_block = var.public-subnet-cidr-block
-    availability_zone = data.aws_availability_zones.available.names[0]
-    vpc_id = aws_vpc.FP_VPC.id
+  cidr_block        = var.public-subnet-cidr-block
+  availability_zone = data.aws_availability_zones.available.names[0]
+  vpc_id            = aws_vpc.FP_VPC.id
 }
 
 # resource "aws_subnet" "private_subnet" {
