@@ -12,11 +12,11 @@ resource "aws_subnet" "public_subnet" {
   vpc_id            = aws_vpc.FP_VPC.id
 }
 
-# resource "aws_subnet" "private_subnet" {
-#     cidr_block = var.private-subnet-cidr-block
-#     availability_zone = data.aws_availability_zones.available.names[0]
-#     vpc_id = aws_vpc.FP_VPC.id
-# }
+resource "aws_subnet" "private_subnet" {
+    cidr_block        = var.private-subnet-cidr-block
+    availability_zone = data.aws_availability_zones.available.names[0]
+    vpc_id            = aws_vpc.FP_VPC.id
+}
 
 resource "aws_internet_gateway" "vpc_igw" {
   vpc_id = aws_vpc.FP_VPC.id
