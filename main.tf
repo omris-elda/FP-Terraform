@@ -20,7 +20,7 @@ module "cluster" {
 }
 
 module "nodes" {
-  source = "./KubernetesNodes"
-  subnet_ids = module.aws_vpc.public_subnet_id
+  source       = "./KubernetesNodes"
+  subnet_ids   = module.aws_vpc.public_subnet_id
   cluster-name = module.aws_eks_cluster.cluster-name
 }
