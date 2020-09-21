@@ -14,7 +14,7 @@ resource "aws_security_group" "main-sec-group" {
     }
   }
   egress {
-    from_port   = var.outpound-port
+    from_port   = var.outbound-port
     protocl     = "-1"
     to_port     = var.outbound-port
     cidr_blocks = [var.open-internet]
