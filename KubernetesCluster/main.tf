@@ -30,7 +30,7 @@ resource "aws_iam_role_policy_attachment" "basic-cluster-AmazonEKSVPCResourceCon
 
 resource "aws_eks_cluster" "basic-cluster" {
   name     = var.cluster-name
-  role_arn = aws_iam_role.cluster-role.arn
+  role_arn = aws_iam_role.basic-cluster.arn
 
   vpc_config {
     subnet_id              = var.public_subnet_id
