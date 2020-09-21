@@ -33,8 +33,9 @@ resource "aws_eks_cluster" "basic-cluster" {
   role_arn = aws_iam_role.basic-cluster.arn
 
   vpc_config {
-    subnet_ids         = [var.public_subnet_id_1, var.public_subnet_id_2, var.public_subnet_id_3]
-    security_group_ids = [var.vpc_security_group_ids]
+    subnet_ids             = [var.public_subnet_id_1, var.public_subnet_id_2, var.public_subnet_id_3]
+    security_group_ids     = [var.vpc_security_group_ids]
+    endpoint_public_access = true
   }
 
   depends_on = [

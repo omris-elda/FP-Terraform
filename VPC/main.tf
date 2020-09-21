@@ -25,9 +25,11 @@ resource "aws_subnet" "public_subnet-2" {
 }
 
 resource "aws_subnet" "public_subnet-3" {
-  cidr_block        = var.public-subnet-cidr-block-3
-  availability_zone = data.aws_availability_zones.available.names[2]
-  vpc_id            = aws_vpc.FP_VPC.id
+  cidr_block              = var.public-subnet-cidr-block-3
+  availability_zone       = data.aws_availability_zones.available.names[2]
+  vpc_id                  = aws_vpc.FP_VPC.id
+  map_public_ip_on_launch = true
+
   tags = {
     "kubernetes.io/cluster/basic-cluster" = "shared"
   }
