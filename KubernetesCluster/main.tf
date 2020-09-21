@@ -34,7 +34,7 @@ resource "aws_eks_cluster" "basic-cluster" {
 
   vpc_config {
     subnet_ids              = [var.public_subnet_id]
-    vpc_security_group_ids = [var.vpc_security_group_ids]
+    security_group_ids = [var.vpc_security_group_ids]
   }
 
   depends_on = [
