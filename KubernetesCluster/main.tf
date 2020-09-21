@@ -33,7 +33,7 @@ resource "aws_eks_cluster" "basic-cluster" {
   role_arn = aws_iam_role.basic-cluster.arn
 
   vpc_config {
-    subnet_id              = var.public_subnet_id
+    subnet_ids              = [var.public_subnet_id]
     vpc_security_group_ids = [var.vpc_security_group_ids]
   }
 
