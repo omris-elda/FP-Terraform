@@ -34,7 +34,7 @@ resource "aws_iam_role_policy_attachment" "basic-node-AmazonEC2ContainerRegistry
 
 resource "aws_eks_node_group" "basic" {
   cluster_name    = var.cluster_name
-  node_group_name = "Basic Node Group"
+  node_group_name = "basic-node-group"
   node_role_arn   = aws_iam_role.basic-node.arn
   subnet_ids      = [var.public_subnet_id_1, var.public_subnet_id_2, var.public_subnet_id_3]
 
