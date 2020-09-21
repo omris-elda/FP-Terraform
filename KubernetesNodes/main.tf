@@ -33,20 +33,20 @@ resource "aws_iam_role_policy_attachment" "demo-node-AmazonEC2ContainerRegistryR
 }
 
 resource "aws_eks_node_group" "basic" {
-    cluster_name = var.cluster_name
-    node_group_name = "Basic Node Group"
-    node_role_arn = aws_iam_role.basic-node.arn
-    subnet_ids = subnet_ids
+  cluster_name    = var.cluster_name
+  node_group_name = "Basic Node Group"
+  node_role_arn   = aws_iam_role.basic-node.arn
+  subnet_ids      = subnet_ids
 
-    scaling_config {
-        desired_size = 1
-        max_size = 3
-        min_size = 1
-    }
+  scaling_config {
+    desired_size = 1
+    max_size     = 3
+    min_size     = 1
+  }
 
-    depends_on = [
-        aws_iam_role_policy_attachment.basic-node-AmazonEKSWorkerNodePolicy,
-        aws_iam_role_policy_attachment.basic-node-AmazonEKS_CNI_Policy,
-        aws_iam_role_policy_attachment.basic-node-AmazonEC2ContainerRegistryReadOnly,
-    ]
+  depends_on = [
+    aws_iam_role_policy_attachment.basic-node-AmazonEKSWorkerNodePolicy,
+    aws_iam_role_policy_attachment.basic-node-AmazonEKS_CNI_Policy,
+    aws_iam_role_policy_attachment.basic-node-AmazonEC2ContainerRegistryReadOnly,
+  ]
 }
