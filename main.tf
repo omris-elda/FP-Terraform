@@ -18,3 +18,9 @@ module "cluster" {
   public_subnet_id       = module.aws_vpc.public_subnet_id
   vpc_security_group_ids = module.aws_security_group.SecGrp_ID
 }
+
+module "nodes" {
+  source = "./KubernetesNodes"
+  subnet_ids = module.aws_vpc.public_subnet_id
+  cluster-name = module.aws_eks_cluster.cluster-name
+}
