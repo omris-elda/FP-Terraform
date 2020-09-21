@@ -3,7 +3,7 @@ resource "aws_iam_role" "basic-cluster" {
 
 
   assume_role_policy = <<POLICY
-  {
+{
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -14,7 +14,7 @@ resource "aws_iam_role" "basic-cluster" {
             "Action": "sts:AssumeRole"
         }
     ]
-  }
+}
 POLICY
 }
 
