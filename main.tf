@@ -15,6 +15,6 @@ module "aws_security_group" {
 
 module "cluster" {
   source                 = "./KubernetesCluster"
-  subnet_id              = module.aws_vpc.public_subnet_id
+  public_subnet_id              = module.aws_vpc.public_subnet_id
   vpc_security_group_ids = module.aws_security_group.SecGrp_ID
 }
