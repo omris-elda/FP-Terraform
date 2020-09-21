@@ -10,18 +10,27 @@ resource "aws_subnet" "public_subnet-1" {
   cidr_block        = var.public-subnet-cidr-block-1
   availability_zone = data.aws_availability_zones.available.names[0]
   vpc_id            = aws_vpc.FP_VPC.id
+  tags = {
+    "kubernetes.io/cluster/basic-cluster" = "shared"
+  }
 }
 
 resource "aws_subnet" "public_subnet-2" {
   cidr_block        = var.public-subnet-cidr-block-2
   availability_zone = data.aws_availability_zones.available.names[1]
   vpc_id            = aws_vpc.FP_VPC.id
+  tags = {
+    "kubernetes.io/cluster/basic-cluster" = "shared"
+  }
 }
 
 resource "aws_subnet" "public_subnet-3" {
   cidr_block        = var.public-subnet-cidr-block-3
   availability_zone = data.aws_availability_zones.available.names[2]
   vpc_id            = aws_vpc.FP_VPC.id
+  tags = {
+    "kubernetes.io/cluster/basic-cluster" = "shared"
+  }
 }
 
 resource "aws_subnet" "private_subnet" {
